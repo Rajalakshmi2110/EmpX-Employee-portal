@@ -1,0 +1,27 @@
+<%- include("partials/header.ejs") %>
+
+<h1><a href="/add" class="add-link button">Add Employee</a></h1>
+
+<div class="box">
+  <h2> Employees</h2>
+  
+  <% if(locals.employees && employees.length > 0) { %>
+  <ul>
+    <% employees.forEach((employee) => { %>
+    <li>
+      <strong><%= employee.empId %></strong>
+      <strong><%= employee.name %></strong>
+      <div class="button-container">
+        <button onclick="window.location.href='/view/<%= employee.id %>'">View</button>
+        <button onclick="window.location.href='/edit/<%= employee.id %>'">Edit</button>
+        <button onclick="window.location.href='/delete/<%= employee.id %>'">Delete</button>
+      </div>
+    </li>
+    <% }) %>
+  </ul>
+  <% } else { %>
+  <p>No employee added yet</p>
+  <% } %>
+</div>
+
+<%- include("partials/footer.ejs") %>

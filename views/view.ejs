@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+    <link rel="stylesheet" type="text/css" href="/path/to/your/css/file.css">
+</head>
+<body>
+
+<%- include("partials/header.ejs") %>       
+
+<table border="1" cellpadding="10" cellspacing="0">
+    <tr>
+        <th>ID</th>
+        <td><%= employee.empId %></td>
+    </tr>
+    <tr>
+        <th>Name</th>
+        <td><%= employee.name %></td>
+    </tr>
+    <tr>
+        <th>Position</th>
+        <td><%= employee.position %></td>
+    </tr>
+    <tr>
+        <th>Salary</th>
+        <td><%= employee.salary %></td>
+    </tr>
+</table>
+
+<div class="center-container">
+    <a href="/" class="back-link">Back to Home</a>
+</div>
+
+<%- include("partials/footer.ejs") %>
+
+</body>
+</html>
