@@ -6,22 +6,22 @@ const app=express()
 app.use(express.urlencoded({extended:true}))
 app.use(express.static("public"))
 
-import dotenv from "dotenv";
-dotenv.config();
+// import dotenv from "dotenv";
+// dotenv.config();
 
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log("✅ Connected to MongoDB"))
-.catch(err => console.error("❌ Could not connect to MongoDB", err));
-
-app.set("view engine", "ejs");
-
-// mongoose.connect("mongodb://localhost:27017/emp_x", {
+// mongoose.connect(process.env.MONGO_URI, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
 // })
-// .then(() => console.log("Connected to MongoDB"))
-// .catch(err => console.error("Could not connect to MongoDB", err))
+// .then(() => console.log("✅ Connected to MongoDB"))
+// .catch(err => console.error("❌ Could not connect to MongoDB", err));
+
+// app.set("view engine", "ejs");
+
+mongoose.connect("mongodb://localhost:27017/emp_x", {
+})
+.then(() => console.log("Connected to MongoDB"))
+.catch(err => console.error("Could not connect to MongoDB", err))
 
 const employeeSchema = new mongoose.Schema({
   empId: String,
@@ -69,10 +69,10 @@ app.post("/edit", async (req, res) => {
   res.redirect("/")
 })
 
-// app.listen(3000,()=>{
-//   console.log("Server is running on port 3000")
-// })
+app.listen(3000,()=>{
+  console.log("Server is running on port 3000")
+})
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log(`Server is running on port ${process.env.PORT || 3000}`);
-});
+// app.listen(process.env.PORT || 3000, () => {
+//   console.log(`Server is running on port ${process.env.PORT || 3000}`);
+// });
